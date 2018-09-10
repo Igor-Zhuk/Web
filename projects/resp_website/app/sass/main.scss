@@ -1,7 +1,9 @@
 @import 'config';
+@import 'menu';
 
 * {
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
