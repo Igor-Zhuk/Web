@@ -12,7 +12,7 @@
         width: 28px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: #fff;
+        background: set-text-color($primary-color);
         @include easeOut;
     }
 
@@ -86,12 +86,13 @@
             transform: translate3d(0, 0, 0);
         }
 
-        .portait {
+        .portrait {
             width: 250px;
             height: 250px;
             border-radius: 50%;
             border: 3px solid $secondary-color;
-            background: url('../img/image.jpg');
+            background: #777;
+            // background: url('../img/image.jpg');
         }
     }
 
@@ -115,7 +116,7 @@
         font-size: 30px;
         text-transform: uppercase;
         padding: .7rem 0;
-        color: #fff;
+        color: set-text-color($primary-color);
         text-decoration: none;
         @include easeOut;
 
