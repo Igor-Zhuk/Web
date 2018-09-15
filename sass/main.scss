@@ -1,0 +1,215 @@
+@import 'config';
+@import 'menu';
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    @include background();
+    background: $primary-color;
+    color: set-text-color($primary-color);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+}
+
+// Headings
+
+h1,h2,h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-heading {
+        font-size: 5rem;
+    }
+
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding: .2rem 1rem;
+        background: rgba(lighten($primary-color, 2), .7);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+main {
+    padding: 4rem;
+    // height: 100%;
+    min-height: calc(100vh - 60px);
+
+    .icons {
+       margin-top: 1rem;
+       
+       a {
+           padding: .4rem;
+
+           &:hover {
+               color: $secondary-color;
+               @include easeOut(); 
+           }
+       }
+    }
+
+    &#home {
+        overflow: hidden;
+        h1 {
+            margin-top: 20vh;
+        }
+    }
+}
+
+.about-info {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas: 
+    'bioimage bio bio'
+    'job-1  job-2 job-3';
+    grid-template-columns: repeat(3, 1fr);
+
+    .bio-image {
+        grid-area: bioimage;
+        margin: auto;
+        border-radius: 50%;
+        border: $secondary-color 3px solid;
+        width: 180px;
+        height: 180px;
+    }
+    
+    .bio {
+        grid-area: bio;
+        font-size: 1.3rem;
+    }
+    
+    .job {
+        background: lighten($primary-color, 5);
+        padding: .5rem;
+        border-bottom: $secondary-color 5px solid;
+        border-radius: 5px;
+        
+        h3 {
+            font-size: 1.7rem;
+        }
+        h6 {
+            margin: .2rem;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    }
+    
+    .job-1 {
+        grid-area: job-1;
+    }
+    
+    .job-2 {
+        grid-area: job-2;
+    }
+    
+    .job-3 {
+        grid-area: job-3;
+    }
+}
+
+//work project
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .7rem;
+
+    img {
+        width: 100%;
+        border: 3px #fff solid;
+        border-radius: 7px;
+        opacity: .6;
+
+        &:hover {
+            opacity: 1;
+            border-color: $secondary-color;
+            @include easeOut;
+        }
+    }
+}
+
+//contact page
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+
+    div {
+        border: 3px #fff solid;
+        border-radius: 7px; 
+        font-size: 1.5rem;
+        padding: 1rem 2.5rem;
+        margin-bottom: 3rem;
+        @include easeOut; 
+
+        &:hover {
+            padding: .7rem 1.5rem;
+            background: $secondary-color;
+            color: set-text-color($secondary-color);
+            font-weight: 600;
+
+            span {
+                color: set-text-color($secondary-color); 
+            }
+        }
+    }
+}
+
+// buttons style
+
+.btn {
+  display: block;
+  padding: .3rem 1rem;
+  border: 0;
+  margin-bottom: .3rem;
+  font-weight: 600;
+  border-radius: 7px;
+  
+  &:hover {
+      background: $secondary-color;
+      color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+    @extend .btn;
+    background: darken($primary-color, 50);
+    color: #fff;
+}
+
+.btn-light {
+    @extend .btn;
+    background: lighten($primary-color, 50);
+    color: #333; 
+}
+
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    background: darken($primary-color, 10);
+    color: set-text-color($primary-color);
+    height: 60px;
+}
+
+@import 'mobile';
